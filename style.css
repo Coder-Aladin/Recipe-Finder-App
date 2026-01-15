@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    text-transform: capitalize;
+    transition: .2s ease;
+    font-family: "Ubuntu", sans-serif;
+}
+
+
+:root {
+  /* Backgrounds */
+  --color-bg-primary: #FFF8F0;   /* Soft Cream */
+  --color-bg-secondary: #7FB77E; /* Sage Green */
+  --color-card-bg: #FFFFFF;
+
+  /* Text */
+  --color-text-primary: #2E2E2E;   /* Charcoal */
+  --color-text-secondary: #6B6B6B; /* Muted Gray */
+  --color-text-inverse: #FFFFFF;
+
+  /* Buttons (Primary CTA) */
+  --color-btn-primary: #E63946;        /* Tomato Red */
+  --color-btn-primary-hover: #D62839;  /* Darker Red */
+  --color-btn-primary-active: #B81F2D;
+  --color-btn-primary-text: #FFFFFF;
+
+  /* Buttons (Secondary) */
+  --color-btn-secondary: #7FB77E;       /* Sage Green */
+  --color-btn-secondary-hover: #6AAE69;
+  --color-btn-secondary-text: #FFFFFF;
+
+  /* Borders & UI */
+  --color-border: #E5E5E5;
+  --color-input-bg: #FFFFFF;
+  --color-input-border: #CCCCCC;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+body{
+    width: 100%;
+    max-height: 100dvh;
+}
+
+header{
+    background-color: var(--color-bg-primary);
+    box-shadow: var(--shadow-soft);
+    padding: 20px;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2{
+    color: var(--color-btn-secondary-hover);
+}
+
+nav form{
+    display: flex;
+    gap: .75rem;
+    margin: 0 2.5rem;
+}
+
+nav form input[type="text"]{
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid var(--color-text-primary);
+    padding: 5px 8px;
+    font-size: 1.2rem;
+    flex-grow: 1;
+    color: var(--color-btn-secondary);
+}
+
+input[type="text"]::placeholder{
+    color: var(--color-btn-secondary);
+}
+
+form button{
+    padding: 4px 10px;
+    font-size: 1.2rem;
+    border: none;
+    background: var(--color-btn-secondary);
+    border-radius: .5rem;
+    color: #FFF;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+form button:hover{
+    background-color: var(--color-btn-secondary-hover);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+main h2{
+    color: var(--color-text-primary);
+    margin-top: 75px;
+}
+
+.recipe-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.recipe-card{
+    padding: 10px;
+    height: 270px;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.3);
+}
+
+.recipe-card:hover{
+    transform: scale(1.02);
+}
+
+.recipe-card img{
+    width: inherit;
+    height: 60%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.recipe-card h3 {
+    margin: 0.2rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.recipe-card p{
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.recipe-card p span{
+    color: var(--color-text-primary);
+    font-weight: bold;
+}
+
+.recipe-card button{
+    margin: .5rem 1rem;
+    padding: .3rem 0;
+    font-size: 1rem;
+    background-color: var(--color-btn-secondary);
+    color: var(--color-btn-primary-text);
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    bottom: 0;
+}
+
+.recipe-card button:hover{
+    background-color: var(--color-btn-secondary-hover);
+}
+
+.recipe-detail-box{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-bg-primary);
+    height: 60%;
+    width: 40%;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    overflow-y: scroll;
+}
+
+.recipe-detail-box::-webkit-scrollbar{
+    width: 12px;
+}
+
+.recipe-detail-box::-webkit-scrollbar-thumb{
+    background-color: var(--color-input-border);
+    color: var(--color-text-secondary);
+}
+
+.recipe-detail-box #close-btn{
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    border-radius: 8px;
+    padding: 4px;
+    color: #FFFFFF;
+    background-color: var(--color-btn-primary);
+}
+
+.recipe-detail-box #close-btn:hover{
+    background-color: var(--color-btn-primary-hover);
+}
+
+.detail-box{
+    margin: 20px;
+    padding: 10px;
+}
+
+.detail-box h2{
+    text-align: center;
+    margin: 10px 0;
+    text-decoration: underline;
+}
+
+.detail-box h3{
+    margin: 8px 0;
+}
+
+.detail-box ul li{
+    margin: 3px 0;
+}
+
+.detail-box p{
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 730px){
+    .recipe-card{
+        height: 225px;
+        width: 155px;
+    }
+
+    .recipe-card img{
+        height: 55%;
+    }
+
+    .recipe-card h3 {
+        margin: 0.1rem;
+        font-size: .9rem;
+        line-height: 1.1;
+    }
+
+    .recipe-card p{
+        font-size: .7rem;
+    }
+
+    .recipe-card button{
+        margin: .4rem .8rem;
+        padding: .25rem 0;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    header{
+        height: 75px;
+    }
+
+    header nav{
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    main h2{
+        margin-top: 110px;
+    }
+
+    .recipe-card{
+        height: 210px;
+        width: 140px;
+    }
+
+    .recipe-card img{
+        height: 50%;
+    }
+
+    .recipe-card h3 {
+        margin: 0.05rem;
+        font-size: .8rem;
+        line-height: 1;
+    }
+
+    .recipe-card p{
+        font-size: .6rem;
+    }
+
+    .recipe-card button{
+        margin: .3rem .6rem;
+        padding: .2rem 0;
+    }
+
+}
+
+
+
